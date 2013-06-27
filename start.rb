@@ -1,3 +1,4 @@
+require 'sinatra'
 class Server
   #your code here
   #
