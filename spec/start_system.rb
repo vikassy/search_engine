@@ -1,4 +1,3 @@
-require '../base.rb'
 require '../start.rb'
 
 describe "class Server" do
