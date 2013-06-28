@@ -6,6 +6,7 @@ class Word < ActiveRecord::Base
   connection.create_table table_name, force: true do |t|
     t.string :word
     t.text :links
+  serialize :links
   end
 end
 
