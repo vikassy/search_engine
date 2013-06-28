@@ -1,3 +1,4 @@
+require 'base.rb'
 class Server
   #your code here
   #
