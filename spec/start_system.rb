@@ -1,5 +1,4 @@
-require 'rspec'
-require '../start.rb'
+require_relative '../start.rb'
 
 #Please do gem install rack && gem install rack-test before running the test
 
