@@ -22,7 +22,7 @@ class Server
       return true
    else
       return false
-   end
+
   end
 
   def start_crawling

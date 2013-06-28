@@ -7,9 +7,9 @@ require 'rack/test'
 
 set :environment , :test
 
-#Rspec.configure do|conf|
- # conf.include Rack::Test::Methods
-#end
+Rspec.configure do|conf|
+  conf.include Rack::Test::Methods
+end
 
 describe "class Server" do
   include Rack::Test::Methods
@@ -31,7 +31,7 @@ describe "class Server" do
   end
 
   it "should start sinatra serve" do
-    server = Server.new('test.db')
+    #server = Server.new('test.db')
     get '/'
     last_response.should be_ok
   end
