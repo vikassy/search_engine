@@ -1,4 +1,7 @@
+#require 'mechanize'
+#require 'sanitize'
 require 'active_record'
+require_relative './crawler/crawler.rb'
 require 'sinatra'
 
 class Word < ActiveRecord::Base
@@ -11,6 +14,7 @@ class Word < ActiveRecord::Base
 end
 
 class Server
+  @crawl
   def initialize table
 
   end
@@ -24,11 +28,12 @@ class Server
   end
 
   def start_crawling
-
+    @crawl = Crawler.new("http://google.com")
+    @crawl.start_crawl
   end
 
   def crawling_status
-
+    return @crawl.getcrawlstat
   end
 end
 
