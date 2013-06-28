@@ -1,5 +1,10 @@
-require 'rspec'
-require '../start.rb'
+require_relative '../start.rb'
+
+#Please do gem install rack && gem install rack-test before running the test
+
+require 'rack/test'
+
+set :environment , :test
 
 describe "class Server" do
 
@@ -10,7 +15,18 @@ describe "class Server" do
 
   it "should start crawling" do
     server = Server.new('test.db')
+<<<<<<< HEAD
     server.start_crawling('https://www.coursera.org/')
+=======
+    server.start_crawling
+>>>>>>> upstream/master
     server.crawling_status.should be_true
   end
+
+  it "should start sinatra serve" do
+    server = Server.new('test.db')
+    get '/'
+    last_response.should be_ok
+  end
+
 end

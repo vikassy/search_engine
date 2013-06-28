@@ -1,11 +1,10 @@
 
-
 require '../crawler/models.rb'
 require "active_record"
 require 'rubygems'
 require 'mechanize'
 require "sanitize"
-
+require './models.rb'
 
 class Crawler
   #write code to make basic crawling and indexing

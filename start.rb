@@ -1,6 +1,8 @@
 require '../crawler/crawler.rb'
 require 'mechanize'
 require 'thread'
+require 'sinatra'
+
 
 class Server
   #your code here
