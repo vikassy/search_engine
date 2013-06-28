@@ -1,15 +1,16 @@
 require 'active_record'
+
 require 'sinatra'
 get '/' do
 end
 
-class Word < ActiveRecord::Base
-  establish_connection adapter: 'sqlite3', database: 'test.db'
-  connection.create_table table_name, force: true do |t|
-    t.string "word"
-    t.string "links"
-  end
-end
+#class Word < ActiveRecord::Base
+#  establish_connection adapter: 'sqlite3', database: 'test.db'
+#  connection.create_table table_name, force: true do |t|
+#    t.string "word"
+#    t.string "links"
+#  end
+#end
 class Server
   #your code here
   #
@@ -17,12 +18,8 @@ class Server
 
   end
 
-  def check_table table
-   if(defined?table)
-      return true
-   else
-      return false
-   end
+  def check_table 
+   
   end
 
   def start_crawling

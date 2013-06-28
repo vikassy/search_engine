@@ -1,5 +1,7 @@
 require 'rspec'
 require '../start.rb'
+require '../crawler/model/word.rb'
+require '../migration/create_word.rb'
 
 #Please do gem install rack && gem install rack-test before running the test
 
@@ -7,9 +9,9 @@ require 'rack/test'
 
 set :environment , :test
 
-Rspec.configure do|conf|
-  conf.include Rack::Test::Methods
-end
+#Rspec.configure do|conf|
+ # conf.include Rack::Test::Methods
+#end
 
 describe "class Server" do
   include Rack::Test::Methods
@@ -17,7 +19,7 @@ describe "class Server" do
 
   it "should check if database exists" do
     server = Server.new('test.db')
-    server.check_table('Word').should be_true
+    server.check_table.should be_true
   end
 
   it "should start crawling" do
@@ -31,7 +33,7 @@ describe "class Server" do
   end
 
   it "should start sinatra serve" do
-    #server = Server.new('test.db')
+    server = Server.new('test.db')
     get '/'
     last_response.should be_ok
   end
