@@ -1,13 +1,14 @@
 require '../crawler/crawler.rb'
 require 'mechanize'
+require 'thread'
 
 class Server
   #your code here
   #
-  @@a=0
+  attr_accessor :thr
+
   def initialize table
     #code
-    @@a=0
   end
 
   def check_table table
@@ -15,14 +16,15 @@ class Server
   end
 
   def start_crawling link
-    agent = Mechanize.new
-    page = agent.get(link)
-    crawl_bot= Crawler.new
-    crawl_bot.crawl_page(link)
-    @@a=1
+    @thr = Thread.new {     
+      agent = Mechanize.new
+      page = agent.get(link)
+      crawl_bot= Crawler.new
+      crawl_bot.crawl_page(link)
+    }
   end
 
   def crawling_status
-    return true if @@a==1
+    return true if @thr.status
   end
 end
