@@ -9,8 +9,8 @@ describe "class Server" do
   end
 
   it "should start crawling" do
-    server = Server.newi('test.db')
-    server.start_crawling
+    server = Server.new('test.db')
+    server.start_crawling('https://www.coursera.org/')
     server.crawling_status.should be_true
   end
 end
