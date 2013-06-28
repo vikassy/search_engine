@@ -1,4 +1,4 @@
-#require ''
+require 'active_record'
 #Include all database tables classes
 
 class Word < ActiveRecord::Base

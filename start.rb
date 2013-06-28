@@ -1,26 +1,22 @@
 #require 'mechanize'
 #require 'sanitize'
-require 'active_record'
+#require 'active_record'
 require_relative './crawler/crawler.rb'
+require_relative './crawler/models.rb'
+require 'pathname'
 require 'sinatra'
-
-class Word < ActiveRecord::Base
-  establish_connection adapter: 'sqlite3', database: 'test.db'
-  connection.create_table table_name, force: true do |t|
-    t.string :word
-    t.text :links
-  serialize :links
-  end
-end
 
 class Server
   @crawl
+
   def initialize table
 
   end
 
   def check_table table
-    if (defined?table)
+    wordObj = Word.new()
+    pn = Pathname.new("./test.db")
+    if (pn.exist?)
       return true
     else
       return false
