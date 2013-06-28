@@ -1,13 +1,18 @@
+require 'active_record'
+
 require 'sinatra'
+get '/' do
+end
+
 class Server
   #your code here
   #
-  def intialize
+  def initialize table
 
   end
 
-  def check_table table
-
+  def check_table 
+   
   end
 
   def start_crawling
@@ -17,5 +22,8 @@ class Server
   def crawling_status
 
   end
+ 
+ 
+
 
 end
