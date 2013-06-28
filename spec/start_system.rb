@@ -7,13 +7,10 @@ require 'rack/test'
 
 set :environment , :test
 
-#Rspec.configure do|conf|
- # conf.include Rack::Test::Methods
-#end
 
 describe "class Server" do
   include Rack::Test::Methods
- 
+
 
   it "should check if database exists" do
     server = Server.new('test.db')
@@ -22,13 +19,10 @@ describe "class Server" do
 
   it "should start crawling" do
     server = Server.new('test.db')
-    server.start_crawling
+    server.start_crawling('https://www.coursera.org/')
     server.crawling_status.should be_true
   end
 
-  def app
-    Sinatra::Application
-  end
 
   it "should start sinatra serve" do
     server = Server.new('test.db')
