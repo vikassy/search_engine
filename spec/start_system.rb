@@ -15,11 +15,8 @@ describe "class Server" do
 
   it "should start crawling" do
     server = Server.new('test.db')
-<<<<<<< HEAD
     server.start_crawling('https://www.coursera.org/')
-=======
     server.start_crawling
->>>>>>> upstream/master
     server.crawling_status.should be_true
   end
 
