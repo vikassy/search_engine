@@ -7,6 +7,14 @@ require_relative './migratedb.rb'
 require 'pathname'
 require 'sinatra'
 
+get '/' do
+
+end
+
+def app
+  Sinatra::Application
+end
+
 class Server
   @crawl
 

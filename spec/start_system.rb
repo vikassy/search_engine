@@ -8,7 +8,8 @@ require 'rack/test'
 set :environment , :test
 
 describe "class Server" do
-
+  include Rack::Test::Methods
+  
   it "should check if database exists" do
     server = Server.new('test.db')
     server.check_table('Word').should be_true
