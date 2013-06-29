@@ -18,7 +18,7 @@ class MigrateDB
 	end
 
 	def check_exists table
-		return ActiveRecord::Base.connection.table_exists?(table);
+		return ActiveRecord::Base.connection.table_exists?(:table);
 	end
 
 end

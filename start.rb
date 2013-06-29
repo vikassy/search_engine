@@ -1,9 +1,10 @@
 #require 'mechanize'
 #require 'sanitize'
 #require 'active_record'
+#require_relative './migratedb.rb'
 require_relative './crawler/crawler.rb'
 require_relative './crawler/models.rb'
-require_relative './migratedb.rb'
+require_relative './dbconnect.rb'
 require 'pathname'
 require 'sinatra'
 
@@ -23,9 +24,8 @@ class Server
   end
 
   def check_table table
-    x = MigrateDB.new()
-    x.migrate()
-    return x.check_exists('words')
+
+    return ActiveRecord::Base.connection.table_exists?(:table)
   end
 
   def start_crawling
