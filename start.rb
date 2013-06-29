@@ -24,8 +24,7 @@ class Server
   end
 
   def check_table table
-
-    return ActiveRecord::Base.connection.table_exists?(:table)
+    return ActiveRecord::Base.connection.table_exists?(:words)
   end
 
   def start_crawling
