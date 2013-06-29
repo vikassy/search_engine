@@ -1,11 +1,7 @@
-#require 'mechanize'
-#require 'sanitize'
-#require 'active_record'
-#require_relative './migratedb.rb'
+
 require_relative './crawler/crawler.rb'
 require_relative './crawler/models.rb'
 require_relative './dbconnect.rb'
-require 'pathname'
 require 'sinatra'
 
 get '/' do
@@ -17,7 +13,7 @@ def app
 end
 
 class Server
-  @crawl
+  attr_accessor :crawl
 
   def initialize table
 
