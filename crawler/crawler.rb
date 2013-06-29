@@ -1,5 +1,3 @@
-require "active_record"
-require 'rubygems'
 require 'mechanize'
 require "sanitize"
 

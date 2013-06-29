@@ -1,6 +1,8 @@
-require_relative 'crawler/crawler.rb'
 require 'mechanize'
 require 'thread'
+require_relative './crawler/crawler.rb'
+require_relative './crawler/models.rb'
+require_relative './dbconnect.rb'
 require 'sinatra'
 
 get '/' do
@@ -12,16 +14,14 @@ def app
 end
 
 class Server
-  #your code here
-  #
-  attr_accessor :thr
+  attr_accessor :crawl
 
   def initialize table
-    #code
+
   end
 
   def check_table table
-
+    return ActiveRecord::Base.connection.table_exists?(:words)
   end
 
   def start_crawling link
