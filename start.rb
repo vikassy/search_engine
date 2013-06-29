@@ -3,6 +3,7 @@
 #require 'active_record'
 require_relative './crawler/crawler.rb'
 require_relative './crawler/models.rb'
+require_relative './migratedb.rb'
 require 'pathname'
 require 'sinatra'
 
@@ -14,13 +15,9 @@ class Server
   end
 
   def check_table table
-    wordObj = Word.new()
-    pn = Pathname.new("./test.db")
-    if (pn.exist?)
-      return true
-    else
-      return false
-    end
+    x = MigrateDB.new()
+    x.migrate()
+    return x.check_exists('words')
   end
 
   def start_crawling
