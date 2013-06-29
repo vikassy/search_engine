@@ -2,6 +2,7 @@ require 'active_record'
 
 require 'sinatra'
 get '/' do
+  
 end
 
 class Server
