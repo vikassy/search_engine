@@ -1,4 +1,5 @@
-
+require 'mechanize'
+require 'thread'
 require_relative './crawler/crawler.rb'
 require_relative './crawler/models.rb'
 require_relative './dbconnect.rb'
@@ -23,13 +24,17 @@ class Server
     return ActiveRecord::Base.connection.table_exists?(:words)
   end
 
-  def start_crawling
-    @crawl = Crawler.new("http://google.com")
-    @crawl.start_crawl
+  def start_crawling link
+    @thr = Thread.new {
+      agent = Mechanize.new
+      page = agent.get(link)
+      crawl_bot= Crawler.new
+      crawl_bot.crawl_page(link)
+    }
   end
 
   def crawling_status
-    return @crawl.getcrawlstat
+    return true if @thr.status
   end
-end
 
+end

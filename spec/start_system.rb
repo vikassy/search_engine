@@ -17,7 +17,7 @@ describe "class Server" do
 
   it "should start crawling" do
     server = Server.new('test.db')
-    server.start_crawling
+    server.start_crawling('https://www.coursera.org/')
     server.crawling_status.should be_true
   end
 
