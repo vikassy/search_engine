@@ -12,9 +12,9 @@ describe Crawler do
   end
 
 
-  Then {manipulate('www.google.com','/hello/world') == "www.google.com/hello/world"}
-  Then {manipulate('www.google.com','www.google.com/init/about.html') == "www.google.com/init/about.html"}
-  Then {manipulate('www.google.com','support.google.com') == "support.google.com"}
-  Then {manipulate('www.google.com','support.google.com/something') == "support.google.com/something"}
+  Then {manipulate('http://www.google.com','/hello/world') == "http://www.google.com/hello/world"}
+  Then {manipulate('http://www.google.com','www.google.com/init/about.html') == "http://www.google.com/init/about.html"}
+  Then {manipulate('http://www.google.com','support.google.com') == "http://support.google.com"}
+  Then {manipulate('http://www.google.com','support.google.com/something') == "http://support.google.com/something"}
 
 end
