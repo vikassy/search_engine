@@ -30,9 +30,7 @@ describe "class Server" do
   end
 
 
-  def app
-    Sinatra::Application
-  end
+ 
 
   it "should start sinatra serve" do
     server = Server.new('test.db')
