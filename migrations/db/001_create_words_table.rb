@@ -3,7 +3,8 @@
 class CreateWordsTable <  ActiveRecord::Migration
   def up
     create_table :words do |t|
-      t.integer :wordlength
+      t.string :word
+      t.text :text
     end
   end
  
