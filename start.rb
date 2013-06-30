@@ -5,8 +5,9 @@ require_relative './crawler/models.rb'
 require_relative './dbconnect.rb'
 require 'sinatra'
 
+require 'sinatra'
 get '/' do
-
+ erb :form
 end
 
 def app
@@ -36,5 +37,8 @@ class Server
   def crawling_status
     return true if @thr.status
   end
+ 
+ 
+
 
 end
