@@ -5,7 +5,6 @@ gem 'sanitize'
 gem 'sinatra'
 gem 'rails'
 gem 'sqlite3'
-gem 'erb'
 
 group :test do
   gem 'rspec-given'
