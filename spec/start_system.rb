@@ -20,14 +20,15 @@ describe "class Server" do
 
   it "should check if database exists" do
     server = Server.new('test.db')
-    server.check_table.should be_true
+    server.check_table("words").should be_true
   end
 
   it "should start crawling" do
     server = Server.new('test.db')
-    server.start_crawling
+    server.start_crawling('https://www.coursera.org/')
     server.crawling_status.should be_true
   end
+
 
   def app
     Sinatra::Application
@@ -39,8 +40,9 @@ describe "class Server" do
     last_response.should be_ok
   end
 
-  it "should have the form inside / path" do
-     visit '/'
-     page.has_selector?('input[name=\'q\']').should be_true
+  it "should check for the form" do
+    visit '/'
+    page.has_selector?('input[name=\'q\']').should be_true
   end
+
 end
