@@ -1,11 +1,8 @@
 require 'mechanize'
-require 'thread'
 require_relative './crawler/crawler.rb'
-require_relative './crawler/models.rb'
-require_relative './dbconnect.rb'
+require_relative './model/word.rb'
 require 'sinatra'
 
-require 'sinatra'
 get '/' do
  erb :form
 end
@@ -37,8 +34,5 @@ class Server
   def crawling_status
     return true if @thr.status
   end
- 
- 
-
 
 end
