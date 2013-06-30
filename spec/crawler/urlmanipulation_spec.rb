@@ -1,4 +1,4 @@
-# require 'rspec/given'
+require 'rspec/given'
 require_relative "../../crawler/crawler.rb"
 
 RSpec::Given.use_natural_assertions
