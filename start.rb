@@ -2,10 +2,11 @@ require 'mechanize'
 require_relative './crawler/crawler.rb'
 require_relative './model/word.rb'
 require 'sinatra'
-
+set :server, 'webrick'
 get '/' do
  erb :form
 end
+
 
 def app
   Sinatra::Application
