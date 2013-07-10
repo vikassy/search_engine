@@ -1,2 +1,2 @@
 BUILD STATUS:
-[![Build Status](https://secure.travis-ci.org/sushant-axe/search_engine.png)](https://github.com/sushant-axe/search_engine)
+[![Build Status](https://travis-ci.org/vikassy/search_engine.png?branch=master)](https://travis-ci.org/vikassy/search_engine)
