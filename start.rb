@@ -6,6 +6,10 @@ set :server, 'webrick'
 get '/' do
  erb :form
 end
+post '/form' do
+ erb :results
+ 
+end
 
 
 def app

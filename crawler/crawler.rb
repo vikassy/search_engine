@@ -58,8 +58,9 @@ class Crawler
     array.each do |word|
       if word[0,imp[1].length] == imp
         return true
-      end
+      Encoding
     end
   end
 
 end
+
