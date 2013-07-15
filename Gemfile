@@ -1,12 +1,14 @@
 source "https://rubygems.org"
 
+ruby '2.0.0'
+
 gem 'mechanize'
 gem 'sanitize'
 gem 'sinatra'
 gem 'rails'
 
 group :development do
-gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :test do
