@@ -4,7 +4,16 @@ require_relative  "../dbconnect.rb"
 
 class Word < ActiveRecord::Base
 
-  attr_accessor :words, :links	
+  before_save :all_links_must_be_unique_for_a_word
+
+  attr_accessor :word, :links
   serialize :links
-  
+
+  validates :word , uniqueness: true
+
+  def all_links_must_be_unique_for_a_word
+    self.links = self.links.uniq
+  end
+
+
 end
