@@ -3,7 +3,7 @@ require "sanitize"
 
 class Crawler
   #write code to make basic crawling and indexing
-	def crawl_page (link)
+  def crawl_page (link)
     agent = Mechanize.new
     agent.user_agent_alias = 'Mac Safari'
     agent.max_history = 10 # unlimited history
@@ -24,11 +24,11 @@ class Crawler
     		begin
     			page = l.click
     			puts Sanitize.clean(page.body)
-        rescue Encoding::CompatibilityError
+            rescue Encoding::CompatibilityError
     			next unless Mechanize::Page === page
     			stack.push(*page.links)
     		rescue Mechanize::ResponseCodeError
-    	end
+      	end
 	  end
 	end
 
@@ -58,8 +58,10 @@ class Crawler
     array.each do |word|
       if word[0,imp[1].length] == imp
         return true
+        Encoding
       end
     end
-  end
 
+  end
 end
+
