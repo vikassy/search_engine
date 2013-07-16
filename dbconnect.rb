@@ -6,4 +6,4 @@ require 'active_record'
 ActiveRecord::Base.establish_connection(:adapter=>'sqlite3', :database=>'test.db')
 
 #personal preference
-ActiveRecord::Base.pluralize_table_names = false
+ActiveRecord::Base.pluralize_table_names = true

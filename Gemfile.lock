@@ -38,6 +38,8 @@ GEM
     domain_name (0.5.12)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
     hike (1.2.3)
     http-cookie (1.0.1)
       domain_name (~> 0.5)
@@ -131,6 +133,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  factory_girl
   mechanize
   rack
   rack-test

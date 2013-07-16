@@ -19,10 +19,12 @@ class Crawler
     		host = l.uri.host
     		next unless host.nil? or host == agent.history.first.uri.host
     		next if agent.visited? l.href
-
     		puts "crawling #{l.uri}"
     		begin
     			page = l.click
+          puts "-"*100
+          puts page.body
+          puts "-"*100
     			puts Sanitize.clean(page.body)
         rescue Encoding::CompatibilityError
     			next unless Mechanize::Page === page
@@ -63,3 +65,5 @@ class Crawler
   end
 
 end
+c = Crawler.new
+c.crawl_page("http://loremipsum.net")

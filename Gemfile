@@ -12,6 +12,7 @@ group :test do
   gem 'rack'
   gem 'rack-test'
   gem 'capybara'
+  gem 'factory_girl'
 end
 
 
