@@ -43,4 +43,19 @@ describe "class Server" do
     page.has_selector?('input[name=\'q\']').should be_true
   end
 
+  describe "result of post request" do
+    let (:server) {Server.new('test.db')}
+    before {visit '/'}
+
+    it "should respond with 200: positive test" do
+      fill_in 'q', :with=>"testing"
+      page.click_button 'search'
+      page.status_code.should == 200
+    end
+
+    it "should respond with 403 or 404: negative test" do
+      click_button 'search'
+      page.status_code.should == 404 or page.status_code.should == 403
+    end
+  end
 end

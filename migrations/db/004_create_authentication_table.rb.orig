@@ -11,4 +11,8 @@ class CreateAuthenticationTable <  ActiveRecord::Migration
   def down
     drop_table :authentication
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> a9eb5566cee6549f1f80f089554251bc68016dcf

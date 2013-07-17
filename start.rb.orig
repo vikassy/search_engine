@@ -1,6 +1,14 @@
 require 'mechanize'
+<<<<<<< HEAD
+=======
 require_relative './crawler/crawler.rb'
+require_relative './dbconnect.rb'
+require 'sinatra'
+
+set :server, 'webrick'
+
 require_relative './model/word.rb'
+>>>>>>> a9eb5566cee6549f1f80f089554251bc68016dcf
 require 'sinatra'
 
 set :server, 'webrick'
@@ -10,8 +18,13 @@ get '/' do
 end
 
 post '/form' do
+<<<<<<< HEAD
+ erb :display
+end
+=======
   @words = params[:words]
   @link = params[:link_name]
+>>>>>>> a9eb5566cee6549f1f80f089554251bc68016dcf
 
   auth = Authentication.where(:authentication_token=>params[:auth_token])
 
@@ -26,30 +39,4 @@ end
 
 def app
   Sinatra::Application
-end
-
-class Server
-  attr_accessor :crawl
-
-  def initialize table
-
-  end
-
-  def check_table table
-    return ActiveRecord::Base.connection.table_exists?(:words)
-  end
-
-  def start_crawling link
-    @thr = Thread.new {
-      agent = Mechanize.new
-      page = agent.get(link)
-      crawl_bot= Crawler.new
-      crawl_bot.crawl_page(link)
-    }
-  end
-
-  def crawling_status
-    return true if @thr.status
-  end
-
 end
