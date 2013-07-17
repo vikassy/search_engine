@@ -9,6 +9,9 @@ get '/' do
  erb :form
 end
 
+post '/form' do
+ erb :display
+end
 
 
 def app
