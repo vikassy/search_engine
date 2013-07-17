@@ -1,5 +1,4 @@
 require 'mechanize'
-require "sanitize"
 require_relative '../helpers/word_helper'
 
 class Crawler
@@ -12,7 +11,6 @@ class Crawler
     stack = page.links
     visited =[]
 
-    # puts Word.first.inspect
 
     while l = stack.pop
     		next unless l.uri
@@ -30,8 +28,6 @@ class Crawler
           words = [].pack('C*').force_encoding('utf-8')
           words = filter body.strip
           puts words
-          $f.write("#{words}  \n")
-
             rescue Encoding::CompatibilityError => e
               puts e
     			next unless Mechanize::Page === page
