@@ -1,10 +1,6 @@
 require 'mechanize'
 require_relative '../helpers/word_helper'
 
-$f = File.open("dump","w")
-
-
-
 class Crawler
   #write code to make basic crawling and indexing
   def crawl_page (link)
@@ -32,8 +28,6 @@ class Crawler
           words = [].pack('C*').force_encoding('utf-8')
           words = filter body.strip
           puts words
-          $f.write("#{words}  \n")
-
             rescue Encoding::CompatibilityError => e
               puts e
     			next unless Mechanize::Page === page
@@ -83,5 +77,5 @@ cr = Crawler.new
 z = gets
 cr.crawl_page(z)
 
-$f.close
+
 
