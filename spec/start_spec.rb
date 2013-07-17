@@ -22,7 +22,7 @@ describe "class Server" do
     server = Server.new('test.db')
     server.check_table("words").should be_true
   end
-
+  
   it "should start crawling" do
     server = Server.new('test.db')
     server.start_crawling('https://www.coursera.org/')
