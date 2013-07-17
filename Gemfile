@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-ruby '2.0.0'
+
 
 gem 'mechanize'
 gem 'sanitize'
 gem 'sinatra'
 gem 'rails'
-
+gem 'protected_attributes'
 group :development do
   gem 'sqlite3'
 end

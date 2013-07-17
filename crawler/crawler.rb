@@ -1,5 +1,6 @@
 require 'mechanize'
 require "sanitize"
+require_relative '../helpers/word_helper'
 
 class Crawler
   #write code to make basic crawling and indexing
@@ -9,8 +10,7 @@ class Crawler
     agent.max_history = 10 # unlimited history
     page = agent.get(link)
     stack = page.links
-    # crawl_page(Sanitize.clean(page.body),ARGV[0])
-    # puts Sanitize.clean(Nokogiri::HTML(page.body))
+    visited =[]
 
     # puts Word.first.inspect
 
@@ -19,16 +19,28 @@ class Crawler
     		host = l.uri.host
     		next unless host.nil? or host == agent.history.first.uri.host
     		next if agent.visited? l.href
-
+           if (!visited.include?(l.href))
     		puts "crawling #{l.uri}"
     		begin
-    			page = l.click
-    			puts Sanitize.clean(page.body)
-            rescue Encoding::CompatibilityError
+          visited << l.href
+          page = l.click
+          body = ""
+          body.force_encoding('utf-8')
+          body = page.body.to_s.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+          words = [].pack('C*').force_encoding('utf-8')
+          words = filter body.strip
+          puts words
+          $f.write("#{words}  \n")
+
+            rescue Encoding::CompatibilityError => e
+              puts e
     			next unless Mechanize::Page === page
     			stack.push(*page.links)
-    		rescue Mechanize::ResponseCodeError
+    		rescue Mechanize::ResponseCodeError => e
+          puts e
       	end
+      end
+
 	  end
 	end
 
@@ -58,12 +70,10 @@ class Crawler
     array.each do |word|
       if word[0,imp[1].length] == imp
         return true
+        Encoding
       end
     end
+
   end
 end
-
-cr=Crawler.new
-cr.crawl_page("https://www.coursera.org/")
- 
 
