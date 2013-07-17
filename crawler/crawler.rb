@@ -63,4 +63,7 @@ class Crawler
   end
 end
 
+cr=Crawler.new
+cr.crawl_page("https://www.coursera.org/")
+ 
 
