@@ -4,6 +4,7 @@ require_relative '../helpers/word_helper'
 class Crawler
   #write code to make basic crawling and indexing
   def crawl_page (link)
+    #This is a crawler !!! 
     agent = Mechanize.new
     agent.user_agent_alias = 'Mac Safari'
     agent.max_history = 10 # unlimited history
